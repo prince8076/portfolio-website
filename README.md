@@ -18,6 +18,8 @@ Single-page static site (`index.html`, no build step) with:
 - **07 · Publications** — 2 Springer papers, 2025 (SharPy; Microgrid cybersecurity)
 - **08 · Contact** — email, phone, LinkedIn, GitHub; resume available on request by email
 
+Redesign v2 (2026-11-21, MotionSites-inspired): rebuilt using the free MotionSites portfolio prompts — Laptop Portfolio (rich black #030304, glass nav with glowing CTA, hero chips, stats band, animated skill bars, filterable projects with modal case studies, 4-step Process, contact form), Sphere Gallery (giant outlined "PRINCE SEN" watermark behind the hero), Dark Portfolio (horizontal scrolling project strip) and Sea Ring (Instrument Serif italic accents, gently bobbing highlight cards). The paid Dark/Ink Portfolio prompts were used as visual reference only; no paid plan was bought.
+
 Design: bespoke dark editorial identity in the spirit of the Shreeji Corporates site — single molten-amber accent on near-black, Space Grotesk display type, film grain, editorial grid lines, cinematic skills marquee, custom cursor follower, 3D-tilt cards with glare. All resume facts are taken verbatim from Prince's resume; no salary/CTC information appears anywhere.
 
 ## Run locally
