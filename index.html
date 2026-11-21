@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prince Sen — Senior Software Developer | Python, Django, FastAPI &amp; AI</title>
+<meta name="description" content="Prince Sen is a Senior Software Developer at Coforge (British Airways client) with 4.5 years of experience in Python, Django, FastAPI, RAG AI systems, PostgreSQL optimisation and full-stack development. Based in Dwarka, New Delhi.">
+<meta property="og:title" content="Prince Sen — Senior Software Developer">
+<meta property="og:description" content="Python · Django · FastAPI · RAG AI · PostgreSQL — 4.5 years building high-performance backends, AI applications and booking platforms.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0b1020">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1020'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='700' fill='%236ee7ff' text-anchor='middle'%3EPS%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --bg:#0b1020; --bg2:#0f1730; --card:#121a33; --card2:#16203f;
+  --line:rgba(148,178,255,.16); --text:#eef2ff; --muted:#a7b1cc; --muted2:#7f8bad;
+  --accent:#6ee7ff; --accent2:#8b7cff; --accent3:#34d399;
+  --grad:linear-gradient(120deg,#6ee7ff,#8b7cff 55%,#c084fc);
+  --radius:18px; --max:1120px;
+  --shadow:0 18px 50px rgba(0,0,0,.35);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--bg);color:var(--text);font-family:"Segoe UI",system-ui,-apple-system,Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-2;background:
+  radial-gradient(900px 500px at 85% -5%,rgba(249,115,22,.22),transparent 60%),
+  radial-gradient(800px 480px at -10% 25%,rgba(110,231,255,.14),transparent 60%),
+  radial-gradient(700px 500px at 50% 110%,rgba(52,211,153,.08),transparent 60%),
+  linear-gradient(180deg,var(--bg),var(--bg2) 55%,var(--bg))}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+section{padding:84px 0 10px}
+.kicker{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:10px}
+h2{font-size:clamp(1.7rem,3.4vw,2.3rem);line-height:1.2;margin-bottom:12px}
+.lead{color:var(--muted);max-width:760px}
+h3{font-size:1.08rem;line-height:1.35}
+
+/* Nav */
+header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(11,16,32,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+.logo{font-weight:800;font-size:1.15rem;color:var(--text);letter-spacing:.02em}
+.logo span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.logo:hover{text-decoration:none}
+nav.links{display:flex;gap:26px;align-items:center}
+nav.links a{color:var(--muted);font-size:.95rem;font-weight:600}
+nav.links a:hover,nav.links a.active{color:var(--text);text-decoration:none}
+.nav-cta{border:1px solid var(--line);padding:8px 16px;border-radius:999px;color:var(--text)!important;background:rgba(110,231,255,.07)}
+.burger{display:none;background:none;border:1px solid var(--line);border-radius:10px;color:var(--text);width:42px;height:42px;font-size:1.15rem;cursor:pointer}
+
+/* Hero */
+.hero{padding:158px 0 70px}
+.hero-grid{display:grid;grid-template-columns:1.35fr .85fr;gap:44px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:9px;border:1px solid rgba(52,211,153,.4);background:rgba(52,211,153,.09);color:#a7f3d0;font-size:.86rem;font-weight:600;padding:7px 14px;border-radius:999px;margin-bottom:22px}
+.badge i{width:8px;height:8px;border-radius:50%;background:var(--accent3);display:inline-block;box-shadow:0 0 0 4px rgba(52,211,153,.18)}
+.hero h1{font-size:clamp(2.5rem,6vw,4.1rem);line-height:1.06;letter-spacing:-.02em;margin-bottom:8px}
+.hero h1 .grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .role{font-size:clamp(1.1rem,2.4vw,1.4rem);color:var(--text);font-weight:600;margin-bottom:16px}
+.hero .role em{font-style:normal;color:var(--accent)}
+.hero p{color:var(--muted);max-width:640px;margin-bottom:28px}
+.btns{display:flex;flex-wrap:wrap;gap:13px}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:12px 22px;border-radius:12px;font-weight:700;font-size:.96rem;border:1px solid var(--line);color:var(--text);background:var(--card);transition:transform .15s ease,box-shadow .15s ease}
+.btn:hover{text-decoration:none;transform:translateY(-2px)}
+.btn.primary{background:var(--grad);color:#0b1020;border:none;box-shadow:0 12px 30px rgba(110,231,255,.22)}
+.btn.small{padding:9px 16px;font-size:.9rem}
+.hero-card{background:linear-gradient(160deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+.hero-card h3{margin-bottom:4px}
+.hero-card .sub{color:var(--muted2);font-size:.9rem;margin-bottom:18px}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stat{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:16px}
+.stat b{display:block;font-size:1.55rem;line-height:1.1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat span{font-size:.84rem;color:var(--muted)}
+.hero-meta{margin-top:18px;font-size:.9rem;color:var(--muted);display:grid;gap:6px}
+.hero-meta a{color:var(--text);font-weight:600}
+
+/* Highlights */
+.grid{display:grid;gap:18px}
+.grid.c3{grid-template-columns:repeat(3,1fr)}
+.grid.c2{grid-template-columns:repeat(2,1fr)}
+.card{background:linear-gradient(165deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:var(--radius);padding:24px;transition:transform .16s ease,border-color .16s ease}
+.card:hover{transform:translateY(-3px);border-color:rgba(110,231,255,.45)}
+.card .num{font-size:2rem;font-weight:800;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:8px}
+.card p{color:var(--muted);font-size:.95rem}
+.card h3{margin-bottom:8px}
+.tagrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tag{font-size:.78rem;font-weight:600;color:#cfe6ff;background:rgba(110,231,255,.09);border:1px solid rgba(110,231,255,.22);padding:4px 10px;border-radius:999px}
+
+/* Skills */
+.skill-card h3{display:flex;align-items:center;gap:10px;margin-bottom:13px}
+.skill-card h3 .dot{width:9px;height:9px;border-radius:3px;background:var(--grad);flex:none}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:.88rem;color:var(--text);background:rgba(255,255,255,.045);border:1px solid var(--line);padding:6px 12px;border-radius:999px}
+.chip.hot{border-color:rgba(139,124,255,.5);background:rgba(139,124,255,.12)}
+
+/* Timeline */
+.timeline{position:relative;margin-top:26px;padding-left:28px}
+.timeline::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:linear-gradient(180deg,var(--accent),var(--accent2),transparent)}
+.job{position:relative;margin-bottom:20px;background:linear-gradient(165deg,var(--card2),var(--card));border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+.job::before{content:"";position:absolute;left:-26px;top:30px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
+.job-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:baseline;margin-bottom:4px}
+.job-head h3{font-size:1.18rem}
+.when{font-size:.86rem;font-weight:700;color:var(--accent);white-space:nowrap}
+.where{color:var(--muted2);font-size:.92rem;margin-bottom:12px}
+.where b{color:var(--muted)}
+.job ul{margin:0 0 4px 18px;color:var(--muted);font-size:.96rem}
+.job li{margin-bottom:7px}
+.job li b,.job p b{color:var(--text)}
+.proj{margin-top:14px;padding-top:13px;border-top:1px dashed var(--line)}
+.proj:first-of-type{margin-top:8px}
+.proj h4{font-size:1rem;margin-bottom:5px;color:var(--text)}
+.proj h4 span{color:var(--accent);font-weight:600;font-size:.85rem;margin-left:6px}
+
+/* Projects / pubs */
+.card .meta{color:var(--muted2);font-size:.88rem;margin-bottom:9px}
+.card ul{margin-left:18px;color:var(--muted);font-size:.95rem}
+.card li{margin-bottom:6px}
+.card li b{color:var(--text)}
+
+/* Contact */
+.contact-box{background:linear-gradient(140deg,rgba(110,231,255,.10),rgba(139,124,255,.12)),var(--card);border:1px solid var(--line);border-radius:22px;padding:36px;text-align:center;box-shadow:var(--shadow)}
+.contact-box p{color:var(--muted);max-width:620px;margin:0 auto 24px}
+.contact-links{display:flex;flex-wrap:wrap;gap:13px;justify-content:center}
+.note{margin-top:22px;font-size:.9rem;color:var(--muted2)}
+.note b{color:var(--muted)}
+footer{margin-top:90px;border-top:1px solid var(--line);padding:26px 0 34px;color:var(--muted2);font-size:.9rem}
+.foot{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center}
+#topBtn{position:fixed;right:20px;bottom:20px;width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:var(--card2);color:var(--text);font-size:1.1rem;cursor:pointer;display:none;box-shadow:var(--shadow);z-index:40}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .grid.c3{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  section{padding:64px 0 6px}
+  .hero{padding:126px 0 50px}
+  .grid.c3,.grid.c2{grid-template-columns:1fr}
+  .stat-grid{grid-template-columns:1fr 1fr}
+  nav.links{display:none;position:absolute;top:66px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:0;background:var(--bg2);border-bottom:1px solid var(--line);padding:10px 22px 16px}
+  nav.links.open{display:flex}
+  nav.links a{padding:9px 0;width:100%}
+  .burger{display:block}
+  .contact-box{padding:28px 20px}
+  .timeline{padding-left:22px}
+  .job::before{left:-20px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .btn,.card{transition:none}
+}
+
+/* ============ 3D / PREMIUM DESIGN LAYER (2026-11-21 upgrade) ============ */
+:root{--glass:rgba(18,26,51,.58);--glass2:rgba(22,32,63,.46);--font-d:"Space Grotesk","Segoe UI",system-ui,sans-serif}
+::selection{background:rgba(139,124,255,.55);color:#fff}
+::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#2b3a66,#3d2f6e);border-radius:99px}
+body{font-family:"Inter","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif}
+h1,h2,.logo,.card .num,.stat b,.btn{font-family:var(--font-d)}
+h2{letter-spacing:-.02em;position:relative;padding-bottom:14px}
+h2::after{content:"";position:absolute;left:0;bottom:0;width:64px;height:4px;border-radius:99px;background:var(--grad);box-shadow:0 4px 18px rgba(110,231,255,.45)}
+#contact h2::after{left:50%;transform:translateX(-50%)}
+#scrollProgress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--grad);z-index:80;box-shadow:0 0 14px rgba(110,231,255,.7)}
+
+/* Hero 3D stage */
+.hero{position:relative;isolation:isolate;overflow:hidden}
+#webglHero{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;opacity:.95;-webkit-mask-image:linear-gradient(180deg,#000 62%,transparent 98%);mask-image:linear-gradient(180deg,#000 62%,transparent 98%)}
+.hero-fallback{position:absolute;inset:0;z-index:-2;background:radial-gradient(720px 420px at 78% 18%,rgba(139,124,255,.30),transparent 62%),radial-gradient(620px 420px at 12% 30%,rgba(110,231,255,.20),transparent 60%),radial-gradient(420px 300px at 55% 90%,rgba(52,211,153,.10),transparent 60%)}
+.orb{position:absolute;border-radius:50%;filter:blur(2px);z-index:-1;pointer-events:none;opacity:.75}
+.orb1{width:340px;height:340px;right:-90px;top:-70px;background:radial-gradient(circle at 32% 30%,rgba(110,231,255,.34),rgba(110,231,255,0) 68%);animation:drift 11s ease-in-out infinite alternate}
+.orb2{width:260px;height:260px;left:-80px;bottom:-60px;background:radial-gradient(circle at 40% 35%,rgba(139,124,255,.34),rgba(139,124,255,0) 68%);animation:drift 14s ease-in-out infinite alternate-reverse}
+.orb3{width:150px;height:150px;right:34%;bottom:-40px;background:radial-gradient(circle at 40% 35%,rgba(192,132,252,.26),rgba(192,132,252,0) 70%);animation:drift 9s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(-26px,30px,0) scale(1.07)}}
+.float-chip{position:absolute;z-index:1;padding:9px 15px;border-radius:999px;font-family:var(--font-d);font-weight:700;font-size:.83rem;color:#dff4ff;background:rgba(15,23,48,.55);border:1px solid rgba(110,231,255,.35);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 16px 36px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.14);pointer-events:none;will-change:transform}
+.chip-a{right:6%;top:118px}.chip-b{right:26%;bottom:34px;color:#e6dcff;border-color:rgba(139,124,255,.45)}.chip-c{left:2%;bottom:52px;color:#c9f7e6;border-color:rgba(52,211,153,.38)}
+.hero h1{letter-spacing:-.035em;text-shadow:0 10px 44px rgba(0,0,0,.35)}
+.hero h1 .grad{background-size:180% 100%;animation:sheen 7s ease-in-out infinite alternate}
+@keyframes sheen{from{background-position:0% 50%}to{background-position:100% 50%}}
+.hero-card,.contact-box{transform-style:preserve-3d}
+.hero .btns,.hero-card{position:relative;z-index:2}
+
+/* Glassmorphism + 3D tilt cards */
+.grid,.hero-grid{perspective:1300px}
+.card,.job,.hero-card,.stat,.contact-box{background:linear-gradient(155deg,rgba(30,42,78,.66),rgba(15,23,48,.62));backdrop-filter:blur(14px) saturate(145%);-webkit-backdrop-filter:blur(14px) saturate(145%);border:1px solid rgba(163,191,255,.20);box-shadow:0 18px 46px rgba(0,0,0,.34),inset 0 1px 0 rgba(255,255,255,.08)}
+.card,.job{position:relative;transform-style:preserve-3d;will-change:transform;transition:transform .35s cubic-bezier(.2,.7,.3,1),border-color .25s ease,box-shadow .35s ease}
+.card::after,.job::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.13),transparent 42%);opacity:0;transition:opacity .25s ease}
+.card:hover::after,.job:hover::after{opacity:1}
+.card:hover,.job:hover{border-color:rgba(110,231,255,.55);box-shadow:0 28px 60px rgba(0,0,0,.48),0 0 0 1px rgba(110,231,255,.10),inset 0 1px 0 rgba(255,255,255,.13)}
+.card .num,.stat b{filter:drop-shadow(0 6px 16px rgba(110,231,255,.25))}
+.chip,.tag{backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.btn{position:relative;overflow:hidden;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.btn::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.22) 48%,transparent 62%);transform:translateX(-120%);transition:transform .55s ease}
+.btn:hover::before{transform:translateX(120%)}
+.stat{transition:transform .3s ease,border-color .3s ease}
+.stat:hover{transform:translateZ(18px) translateY(-3px);border-color:rgba(139,124,255,.5)}
+
+/* Smoother reveal: rise + de-blur + slight scale, staggered via --d */
+.reveal{opacity:0;transform:translateY(26px) scale(.985);filter:blur(6px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1),filter .7s ease;transition-delay:var(--d,0s)}
+.reveal.in{opacity:1;transform:none;filter:blur(0)}
+.timeline::before{box-shadow:0 0 16px rgba(110,231,255,.45)}
+.job::before{box-shadow:0 0 0 5px rgba(110,231,255,.14),0 0 18px rgba(110,231,255,.55)}
+header{background:rgba(9,13,28,.72);box-shadow:0 10px 34px rgba(0,0,0,.25)}
+
+@media (max-width:900px){.float-chip{display:none}.chip-c{display:none}}
+@media (max-width:640px){
+  #webglHero{opacity:.55}
+  .orb1{width:220px;height:220px}.orb2{width:180px;height:180px}.orb3{display:none}
+  .card,.job{backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)}
+}
+@media (prefers-reduced-motion:reduce){
+  .orb,.hero h1 .grad{animation:none!important}
+  .reveal{filter:none}
+  #webglHero{display:none}
+  .btn::before{display:none}
+}
+
+/* ============ BESPOKE IDENTITY — phoenix-editorial, NOT a template ============
+   Inspired by the Shreeji Corporates / Trophy site (motion-studio):
+   single molten-amber accent on near-black ink, Space Grotesk display
+   uppercase, editorial grid lines, film grain, per-character title rise,
+   numbered sections, scroll-scrubbed hero. No purple-gradient clichés,
+   no photo — the name itself is the visual. */
+:root{
+  --amber:#f97316; --gold:#ffb25e; --paper:#f4efe7;
+  --grad:linear-gradient(115deg,#f97316,#ffb25e 60%,#ffd9a0);
+  --accent:#ff8a3d; --accent2:#f97316; --accent3:#ffb25e;
+  --line:rgba(244,239,231,.14);
+}
+::selection{background:var(--amber);color:#fff}
+body{background:#08080a;color:var(--paper)}
+body::before{background:
+  radial-gradient(880px 480px at 88% -6%,rgba(249,115,22,.13),transparent 60%),
+  radial-gradient(760px 460px at -12% 28%,rgba(255,178,94,.06),transparent 60%),
+  linear-gradient(180deg,#08080a,#0e0d0c 55%,#08080a)}
+body::after{content:"";position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.9'/%3E%3C/svg%3E")}
+#scrollProgress{background:var(--amber);box-shadow:0 0 12px rgba(249,115,22,.65)}
+header{background:rgba(8,8,10,.8)}
+.kicker{color:var(--amber);font-family:var(--font-d)}
+.kicker::before{content:"";display:inline-block;width:26px;height:1px;background:var(--amber);vertical-align:middle;margin-right:10px}
+#contact .kicker::before{display:none}
+h2::after{background:var(--amber);box-shadow:0 4px 16px rgba(249,115,22,.4)}
+section{border-top:1px solid rgba(244,239,231,.08)}
+
+/* Cards: flat editorial panels, hairline borders, amber tick — not glass blobs */
+.card,.job,.hero-card,.stat,.contact-box{background:linear-gradient(168deg,rgba(26,25,23,.88),rgba(13,13,14,.92));border:1px solid rgba(244,239,231,.13);box-shadow:0 20px 44px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.05)}
+.card::before,.job::before{content:"";position:absolute;left:0;top:22px;width:3px;height:34px;border-radius:0 3px 3px 0;background:var(--amber);opacity:0;transition:opacity .25s ease}
+.job::before{left:-26px;top:30px;width:14px;height:14px;border-radius:50%;background:#08080a;border:3px solid var(--amber);opacity:1;box-shadow:0 0 0 5px rgba(249,115,22,.14),0 0 18px rgba(249,115,22,.5)}
+.card:hover::before{opacity:1}
+.card:hover,.job:hover{border-color:rgba(249,115,22,.55);box-shadow:0 28px 58px rgba(0,0,0,.55),inset 0 1px 0 rgba(255,255,255,.07)}
+.card::after,.job::after{background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(255,178,94,.12),transparent 42%)}
+.card .num,.stat b{background:var(--grad);-webkit-background-clip:text;background-clip:text;filter:drop-shadow(0 6px 16px rgba(249,115,22,.22))}
+.chip.hot,.tag{border-color:rgba(249,115,22,.45);background:rgba(249,115,22,.10);color:#ffe3c2}
+.tag{color:#f7e8d5}
+.hero .role em{color:var(--amber)}
+.badge{border-color:rgba(249,115,22,.45);background:rgba(249,115,22,.08);color:#ffd9ae}
+.badge i{background:var(--amber);box-shadow:0 0 0 4px rgba(249,115,22,.16)}
+.btn.primary{background:var(--amber);color:#14100b;box-shadow:0 14px 32px rgba(249,115,22,.28)}
+.btn.primary:hover{background:var(--gold)}
+.timeline::before{background:rgba(244,239,231,.10);box-shadow:none}
+.tl-fill{position:absolute;left:8px;top:6px;width:2px;height:0;background:linear-gradient(180deg,var(--amber),var(--gold));box-shadow:0 0 14px rgba(249,115,22,.55);z-index:1}
+.when{color:var(--amber)}
+.proj h4 span{color:var(--amber)}
+.skill-card h3 .dot{background:var(--amber)}
+
+/* Hero: editorial grid + massive stacked name + PS monogram (no photo) */
+.hero{background-image:linear-gradient(rgba(244,239,231,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(244,239,231,.045) 1px,transparent 1px);background-size:120px 120px}
+.hero-fallback{background:radial-gradient(720px 420px at 80% 16%,rgba(249,115,22,.16),transparent 62%),radial-gradient(560px 380px at 8% 34%,rgba(255,178,94,.07),transparent 60%)}
+.orb1{background:radial-gradient(circle at 32% 30%,rgba(249,115,22,.30),transparent 68%)}
+.orb2{background:radial-gradient(circle at 40% 35%,rgba(255,178,94,.20),transparent 68%)}
+.orb3{background:radial-gradient(circle at 40% 35%,rgba(249,115,22,.18),transparent 70%)}
+.float-chip{color:#ffe9d2;border-color:rgba(249,115,22,.4);background:rgba(16,14,12,.6)}
+.chip-b{color:#fff3e2;border-color:rgba(255,178,94,.45)}.chip-c{color:#ffe9d2;border-color:rgba(249,115,22,.35)}
+.hero h1{font-size:clamp(3.6rem,10vw,7.2rem);line-height:.92;text-transform:uppercase;letter-spacing:-.015em;margin-bottom:14px}
+.hero h1 .outline{display:block;color:#f4efe7}
+@supports (-webkit-text-stroke:1px #000){.hero h1 .outline{color:transparent;-webkit-text-stroke:2px rgba(244,239,231,.92)}}
+.hero h1 .char{display:inline-block;opacity:0;transform:translateY(60%);animation:charUp .85s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(var(--ci,0)*46ms + 120ms)}
+@keyframes charUp{to{opacity:1;transform:translateY(0)}}
+.monogram{position:relative;width:118px;height:118px;margin-bottom:20px;display:grid;place-items:center;transform-style:preserve-3d}
+.monogram::before{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,var(--amber),transparent 32%,rgba(244,239,231,.35) 50%,transparent 68%,var(--gold));-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 2px),#000 calc(100% - 2px));mask:radial-gradient(farthest-side,transparent calc(100% - 2px),#000 calc(100% - 2px));animation:ringspin 16s linear infinite}
+@keyframes ringspin{to{transform:rotate(360deg)}}
+.monogram::after{content:"";position:absolute;inset:10px;border-radius:50%;border:1px solid rgba(244,239,231,.16)}
+.monogram b{font-family:var(--font-d);font-size:2.6rem;letter-spacing:.02em;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;transform:translateZ(30px)}
+.monogram small{position:absolute;bottom:-7px;left:50%;transform:translateX(-50%);background:#0d0d0e;border:1px solid rgba(249,115,22,.4);color:#ffd9ae;font-size:.6rem;letter-spacing:.28em;padding:3px 8px;border-radius:99px;white-space:nowrap}
+.logo-mono{display:inline-grid;place-items:center;width:30px;height:30px;border:1.5px solid var(--amber);border-radius:9px;color:var(--amber);font-size:.78rem;margin-right:9px;vertical-align:-8px;background:none;-webkit-text-fill-color:var(--amber)}
+.logo span{background:none;color:var(--paper);-webkit-text-fill-color:var(--paper)}
+
+/* Cinematic skills marquee */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:16px 0;background:rgba(255,255,255,.015);position:relative}
+.marquee-track{display:flex;width:max-content;animation:marq 30s linear infinite}
+.marquee span{font-family:var(--font-d);font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:.95rem;color:rgba(244,239,231,.75);padding-right:14px;white-space:nowrap}
+.marquee span i{font-style:normal;color:var(--amber);padding:0 12px}
+@keyframes marq{to{transform:translateX(-50%)}}
+.marquee:hover .marquee-track{animation-play-state:paused}
+
+/* Custom cursor follower (fine pointers only) */
+.cursor-dot,.cursor-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:90;border-radius:50%;transform:translate(-50%,-50%);display:none}
+@media (hover:hover) and (pointer:fine){.cursor-dot,.cursor-ring{display:block}}
+.cursor-dot{width:6px;height:6px;background:var(--amber)}
+.cursor-ring{width:34px;height:34px;border:1px solid rgba(249,115,22,.65);transition:width .22s,height .22s,background .22s}
+.cursor-ring.is-hover{width:52px;height:52px;background:rgba(249,115,22,.08)}
+
+@media (prefers-reduced-motion:reduce){
+  .hero h1 .char{animation:none;opacity:1;transform:none}
+  .monogram::before{animation:none}
+  .marquee-track{animation:none}
+  .cursor-dot,.cursor-ring{display:none!important}
+}
+
+/* Hero portrait — Prince's GitHub avatar, premium framed 3D treatment.
+   PS monogram sits behind the image and is revealed if the avatar fails. */
+.photo-frame{position:relative;width:min(300px,100%);aspect-ratio:1/1;margin:2px auto 24px;border-radius:22px;transform-style:preserve-3d;will-change:transform;background:#14120f}
+.photo-frame::before{content:"";position:absolute;inset:-9px;border-radius:28px;background:conic-gradient(from 120deg,var(--amber),transparent 30%,rgba(244,239,231,.4) 50%,transparent 70%,var(--gold),var(--amber));-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 2px),#000 calc(100% - 2px));mask:radial-gradient(farthest-side,transparent calc(100% - 2px),#000 calc(100% - 2px));animation:ringspin 18s linear infinite;opacity:.9}
+.photo-frame::after{content:"";position:absolute;inset:0;border-radius:22px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.16),inset 0 -70px 90px -40px rgba(0,0,0,.55),0 30px 60px rgba(0,0,0,.5);pointer-events:none;z-index:3}
+.photo-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:22px;display:block;z-index:2;filter:saturate(1.04) contrast(1.03)}
+.photo-frame img.img-failed{opacity:0}
+.photo-fallback{position:absolute;inset:0;border-radius:22px;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;background:radial-gradient(120% 120% at 30% 20%,#2a2118,#100e0c 70%);border:1px solid rgba(249,115,22,.35)}
+.photo-fallback b{font-family:var(--font-d);font-size:4.4rem;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.photo-fallback small{font-size:.62rem;letter-spacing:.34em;color:#ffd9ae}
+.photo-mono{position:absolute;right:-14px;bottom:26px;z-index:4;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-family:var(--font-d);font-weight:700;font-size:1rem;color:#171208;background:linear-gradient(140deg,var(--gold),var(--amber));border:2px solid #0d0d0e;box-shadow:0 14px 30px rgba(0,0,0,.5);transform:translateZ(46px)}
+.photo-tag{position:absolute;left:14px;bottom:12px;z-index:4;font-family:var(--font-d);font-size:.66rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:#fff;background:rgba(8,8,10,.62);border:1px solid rgba(255,255,255,.18);padding:6px 10px;border-radius:99px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transform:translateZ(38px)}
+@media (max-width:640px){.photo-frame{width:min(250px,86%)}.photo-mono{right:-8px;width:50px;height:50px}}
+@media (prefers-reduced-motion:reduce){.photo-frame::before{animation:none}}
+</style>
+</head>
+<body>
+<div id="scrollProgress" aria-hidden="true"></div>
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div><div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top"><span class="logo-mono">PS</span>Prince<span>Sen</span></a>
+    <button class="burger" id="burger" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+    <nav class="links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#publications">Publications</a>
+      <a class="nav-cta" href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-fallback" aria-hidden="true"></div>
+    <canvas id="webglHero" aria-hidden="true"></canvas>
+    <div class="orb orb1" data-parallax="18" aria-hidden="true"></div>
+    <div class="orb orb2" data-parallax="-12" aria-hidden="true"></div>
+    <div class="orb orb3" data-parallax="10" aria-hidden="true"></div>
+    <span class="float-chip chip-a" data-parallax="22" aria-hidden="true">Django &middot; FastAPI</span>
+    <span class="float-chip chip-b" data-parallax="-16" aria-hidden="true">RAG AI</span>
+    <span class="float-chip chip-c" data-parallax="14" aria-hidden="true">PostgreSQL</span>
+    <div class="wrap hero-grid">
+      <div>
+        <span class="badge"><i></i> Available to join from 14 December 2026</span>
+        <h1>Prince<span class="outline">Sen</span></h1>
+        <p class="role">Senior Software Developer — <em>Python · Django · FastAPI · AI</em></p>
+        <p>Senior Software Developer at <strong>Coforge</strong>, building booking, PNR and payment APIs for <strong>British Airways</strong>. 4.5 years of full-stack experience across AI-powered applications, RAG systems, mission-critical defence projects for the Indian Air Force, and high-performance booking platforms.</p>
+        <div class="btns">
+          <a class="btn primary" href="#experience">View Experience</a>
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn" href="#contact">Get in Touch</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="Quick facts">
+        <div class="photo-frame" id="photoFrame">
+          <div class="photo-fallback" aria-hidden="true"><b>PS</b><small>PRINCE SEN</small></div>
+          <img src="https://avatars.githubusercontent.com/u/62479635?v=4&amp;s=600" alt="Portrait of Prince Sen" width="460" height="460" fetchpriority="high" onerror="this.classList.add('img-failed')">
+          <span class="photo-mono" aria-hidden="true">PS</span>
+          <span class="photo-tag" aria-hidden="true">Prince Sen &middot; New Delhi</span>
+        </div>
+        <h3>At a glance</h3>
+        <p class="sub">Dwarka, New Delhi, India · Open to On-site, Hybrid &amp; Remote roles in India</p>
+        <div class="stat-grid">
+          <div class="stat"><b>4.5 yrs</b><span>Full-stack development experience</span></div>
+          <div class="stat"><b>10k+</b><span>Security alerts processed per day (IAF)</span></div>
+          <div class="stat"><b>1,000+</b><span>Requests / sec under load testing</span></div>
+          <div class="stat"><b>2</b><span>Springer research papers (2025)</span></div>
+        </div>
+        <div class="hero-meta">
+          <span>Email — <a href="mailto:princesen00c@gmail.com">princesen00c@gmail.com</a></span>
+          <span>Phone — <a href="tel:+919773823909">+91-9773823909</a></span>
+          <span>LinkedIn — <a href="https://www.linkedin.com/in/prince-sen-7a5339301/" target="_blank" rel="noopener">prince-sen-7a5339301</a></span>
+          <span>GitHub — <a href="https://github.com/prince8076" target="_blank" rel="noopener">github.com/prince8076</a></span>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="marquee" aria-hidden="true"><div class="marquee-track">
+    <span>Python <i>&#10022;</i> Django <i>&#10022;</i> FastAPI <i>&#10022;</i> RAG AI <i>&#10022;</i> PostgreSQL <i>&#10022;</i> Gemini AI <i>&#10022;</i> React <i>&#10022;</i> Docker <i>&#10022;</i> Redis <i>&#10022;</i> WebSocket <i>&#10022;</i></span>
+    <span>Python <i>&#10022;</i> Django <i>&#10022;</i> FastAPI <i>&#10022;</i> RAG AI <i>&#10022;</i> PostgreSQL <i>&#10022;</i> Gemini AI <i>&#10022;</i> React <i>&#10022;</i> Docker <i>&#10022;</i> Redis <i>&#10022;</i> WebSocket <i>&#10022;</i></span>
+  </div></div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap reveal">
+      <p class="kicker">01 &mdash; About</p>
+      <h2>Summary</h2>
+      <p class="lead">Dynamic and innovative software developer with 4.5 years of specialised experience in full-stack development, currently working as a Senior Software Developer at Coforge for client British Airways, and previously developing AI-powered applications and investment management systems.</p>
+      <p class="lead" style="margin-top:14px">Proficient in building sophisticated AI content generation systems using Gemini AI, ElevenLabs and Google Veo for video, podcast and article generation. Demonstrated expertise in architecting secure, high-performance applications with PostgreSQL optimisation, RAG AI architecture, and scalable microservices using Django, FastAPI and modern web technologies — including mission-critical defence projects for the Indian Air Force and innovative booking platforms.</p>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section id="highlights">
+    <div class="wrap">
+      <p class="kicker">02 &mdash; Key Highlights</p>
+      <h2>Quantified wins</h2>
+      <p class="lead" style="margin-bottom:26px">Measured results from production systems — performance, scale and reliability.</p>
+      <div class="grid c3">
+        <div class="card reveal"><div class="num">-78%</div><h3>Anti-phishing response time</h3><p>Django + PostgreSQL backend for the Indian Air Force processing <b>10,000+ daily security alerts</b>, with optimised ORM queries and database indexing.</p></div>
+        <div class="card reveal"><div class="num">-65%</div><h3>SaunaSpot API response time</h3><p>Database query optimisation and indexing on booking dates, user IDs and locations, cutting API response time under concurrent booking scenarios.</p></div>
+        <div class="card reveal"><div class="num">-60%</div><h3>RAG + GIS query time</h3><p>Advanced indexing on a ChromaDB vector database powering an AI decision-support system with GIS integration for Air Force operations.</p></div>
+        <div class="card reveal"><div class="num">800&rarr;200ms</div><h3>Endpoint response times</h3><p>Average API response improved from 800ms to 200ms at Success Webtech through JMeter-driven load testing and optimisation.</p></div>
+        <div class="card reveal"><div class="num">95% uptime</div><h3>Under 1,000+ req/sec</h3><p>Comprehensive JMeter load testing on the IAF anti-phishing platform, sustaining high concurrency with master&ndash;slave PostgreSQL replication.</p></div>
+        <div class="card reveal"><div class="num">-70%</div><h3>Database hits</h3><p>ORM optimisation with <b>select_related</b> and <b>prefetch_related</b> in dashboard analytics on the Success Webtech enterprise portal.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="wrap">
+      <p class="kicker">03 &mdash; Skills</p>
+      <h2>Core skills</h2>
+      <p class="lead" style="margin-bottom:26px">Backend-first full-stack engineering, with production AI/ML and performance optimisation throughout.</p>
+      <div class="grid c3">
+        <div class="card skill-card reveal"><h3><span class="dot"></span>Languages</h3><div class="chips"><span class="chip hot">Python</span><span class="chip">C++</span><span class="chip">C#</span><span class="chip">JavaScript</span><span class="chip">TypeScript</span></div></div>
+        <div class="card skill-card reveal"><h3><span class="dot"></span>Backend</h3><div class="chips"><span class="chip hot">Django</span><span class="chip hot">FastAPI</span><span class="chip">Flask</span><span class="chip">Django REST API</span><span class="chip">REST APIs</span><span class="chip">ORM Optimisation</span><span class="chip">Microservices</span></div></div>
+        <div class="card skill-card reveal"><h3><span class="dot"></span>AI / ML</h3><div class="chips"><span class="chip hot">Gemini AI</span><span class="chip hot">RAG AI</span><span class="chip">Google Veo</span><span class="chip">ElevenLabs</span><span class="chip">OpenAI API</span><span class="chip">ChromaDB</span><span class="chip">Vector Embeddings</span><span class="chip">Text-to-Speech</span><span class="chip">Video &amp; Podcast Generation</span></div></div>
+        <div class="card skill-card reveal"><h3><span class="dot"></span>Databases</h3><div class="chips"><span class="chip hot">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">Master&ndash;Slave Replication</span><span class="chip">Read Replicas</span><span class="chip">Indexing</span><span class="chip">Query Optimisation</span><span class="chip">Vector Databases</span></div></div>
+        <div class="card skill-card reveal"><h3><span class="dot"></span>Real-time Systems</h3><div class="chips"><span class="chip hot">Redis</span><span class="chip">Redis Streaming</span><span class="chip hot">WebSocket</span><span class="chip">Real-time Data Processing</span><span class="chip">Live Dashboards</span></div></div>
+        <div class="card skill-card reveal"><h3><span class="dot"></span>Testing / DevOps</h3><div class="chips"><span class="chip hot">JMeter</span><span class="chip">API Load Testing</span><span class="chip">Docker</span><span class="chip">CI/CD</span><span class="chip">Git</span></div></div>
+        <div class="card skill-card reveal"><h3><span class="dot"></span>Frontend</h3><div class="chips"><span class="chip hot">React.js</span><span class="chip">TypeScript</span><span class="chip">JavaScript</span><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Node.js</span><span class="chip">Express.js</span><span class="chip">XSLT</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="wrap">
+      <p class="kicker">04 &mdash; Experience</p>
+      <h2>Professional experience</h2>
+      <div class="timeline"><span class="tl-fill" id="tlFill" aria-hidden="true"></span>
+
+        <article class="job reveal">
+          <div class="job-head"><h3>Senior Software Developer — Coforge</h3><span class="when">Jan 2026 — Present</span></div>
+          <p class="where"><b>Client: British Airways</b> · India</p>
+          <ul>
+            <li>Frontend and backend development for British Airways booking services, including the <b>Manage My Booking</b> page and its migration to the new Bagel design using XSLT.</li>
+            <li>Backend APIs in <b>Django and FastAPI</b> for booking-related services.</li>
+            <li>Investigating and fixing <b>PNR issues</b> — booking references that do not load, validate or update correctly — and <b>payment issues</b>, where booking payments fail, do not confirm, or do not reflect correctly against a booking.</li>
+            <li>Debugging and resolving these API issues to keep booking, PNR retrieval and payment flows working reliably for customers.</li>
+          </ul>
+        </article>
+
+        <article class="job reveal">
+          <div class="job-head"><h3>Software Developer — Bombay Softwares</h3><span class="when">Sep 2025 — Jan 2026</span></div>
+          <p class="where">Gujarat, India · On-site</p>
+          <div class="proj"><h4>Mendreo <span>AI Therapy Chatbot</span></h4>
+            <ul>
+              <li>Django REST API backend for an AI-powered therapy chatbot, with PostgreSQL for user sessions and conversation history.</li>
+              <li>Automated article generation with <b>Gemini AI</b>, an end-to-end podcast pipeline using Gemini scripts + <b>ElevenLabs</b> text-to-speech, and video generation with the <b>Google Veo 3.1 API</b>.</li>
+              <li>Secure API endpoints with authentication and rate limiting, with data-privacy care for sensitive mental-health conversations.</li>
+            </ul></div>
+          <div class="proj"><h4>TritonLake <span>Investment Idea Platform</span></h4>
+            <ul>
+              <li>Django + PostgreSQL platform connecting entrepreneurs pitching ideas with potential investors.</li>
+              <li>REST APIs for idea submission, investor interest tracking and matching by industry and funding requirements, with role-based access control.</li>
+              <li>Real-time notification service using Django signals and background task processing.</li>
+            </ul></div>
+          <div class="proj"><h4>SaunaSpot <span>Sauna Booking Platform</span></h4>
+            <ul>
+              <li>Django REST API booking system with real-time availability, conflict resolution, time-slot management and automated confirmations.</li>
+              <li>Payment gateway integration for secure transactions, deposits and refund handling.</li>
+              <li>Query optimisation and indexing that <b>reduced API response time by 65%</b> under concurrent booking scenarios.</li>
+            </ul></div>
+        </article>
+
+        <article class="job reveal">
+          <div class="job-head"><h3>Senior Software Developer — EkVayu Tech Pvt. Ltd.</h3><span class="when">Dec 2024 — Aug 2025</span></div>
+          <p class="where">Noida, India · On-site</p>
+          <div class="proj"><h4>Anti-Phishing Tool <span>Indian Air Force</span></h4>
+            <ul>
+              <li>Django REST API + PostgreSQL processing <b>10,000+ daily security alerts</b> with <b>78% reduced response time</b> via optimised ORM queries and indexing.</li>
+              <li>URL extraction system parsing links from PDFs, Excel and Word documents, validating malicious URLs before AI threat verification.</li>
+              <li>Master&ndash;slave PostgreSQL replication with separate read/write replicas for concurrent security scanning.</li>
+              <li>JMeter load testing achieving <b>95% uptime under 1,000+ concurrent requests per second</b>.</li>
+            </ul></div>
+          <div class="proj"><h4>AI Decision Support System <span>GIS Integration</span></h4>
+            <ul>
+              <li>FastAPI microservices with <b>RAG architecture</b> and a ChromaDB vector database for military intelligence embeddings, with OpenAI integration.</li>
+              <li>GIS data pipeline with Redis streaming for real-time geospatial analytics, and WebSocket streaming to live decision-support dashboards.</li>
+              <li>Vector query optimisation and advanced indexing that <b>reduced query execution time by 60%</b>.</li>
+            </ul></div>
+        </article>
+
+        <article class="job reveal">
+          <div class="job-head"><h3>Software Developer — Success Webtech</h3><span class="when">May 2022 — Nov 2024</span></div>
+          <p class="where">New Delhi, India</p>
+          <div class="proj"><h4>JFK University School of Medicine Platform</h4>
+            <ul>
+              <li>Django backend with PostgreSQL and MongoDB, efficient ORM queries and B-tree indexing for student record management.</li>
+              <li>React.js frontend with real-time data synchronisation, plus FastAPI microservices for course management and enrolment.</li>
+              <li>Read-replica replication strategy for a <b>40% performance improvement</b> under concurrent users; JMeter optimisation took endpoints from <b>800ms to 200ms</b> on average.</li>
+            </ul></div>
+          <div class="proj"><h4>Success Webtech Enterprise Portal</h4>
+            <ul>
+              <li>Scalable booking and authentication modules in Django + PostgreSQL, with advanced indexing on frequently queried columns.</li>
+              <li>FastAPI notification service with MongoDB for user preferences and PostgreSQL transactional data with master&ndash;slave replication.</li>
+              <li>ORM optimisation with select_related / prefetch_related, <b>reducing database hits by 70%</b> in dashboard analytics.</li>
+            </ul></div>
+        </article>
+
+        <article class="job reveal">
+          <div class="job-head"><h3>Software Developer Intern — Amosta Solution Pvt. Ltd.</h3><span class="when">Mar 2021 — Aug 2021</span></div>
+          <p class="where">Gurugram, India</p>
+          <div class="proj"><h4>Movie Recommendation System</h4>
+            <ul>
+              <li>Flask application with PostgreSQL and MongoDB, indexed on genre and rating for faster search.</li>
+              <li>Similarity-search recommendation engine for personalised movie suggestions, with a TMDB API caching layer that <b>reduced external API calls by 80%</b>.</li>
+              <li>JMeter performance testing ensuring stability under 500+ concurrent users.</li>
+            </ul></div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="wrap">
+      <p class="kicker">05 &mdash; Projects</p>
+      <h2>Featured projects</h2>
+      <p class="lead" style="margin-bottom:26px">Selected builds from the experience above, plus a live production website.</p>
+      <div class="grid c2">
+        <div class="card reveal">
+          <h3>Shreeji Corporates — Trophy Website</h3>
+          <p class="meta">Live production site · React · Vercel · Render</p>
+          <ul>
+            <li>Designed and built the website for <b>Shreeji Corporates</b>, a New Delhi trophies and awards business — scroll-driven phoenix animation, product catalogue and customer feedback system.</li>
+            <li>React frontend deployed on <b>Vercel</b> with a <b>Render</b> backend and an admin panel for managing products and feedback.</li>
+          </ul>
+          <div class="tagrow"><a class="btn small primary" href="https://www.shreejicorporates.com/" target="_blank" rel="noopener">Visit Live Site</a></div>
+        </div>
+        <div class="card reveal">
+          <h3>Mendreo — AI Therapy Platform</h3>
+          <p class="meta">Bombay Softwares · Django · Gemini · ElevenLabs · Google Veo</p>
+          <ul>
+            <li>AI therapy chatbot backend with multi-modal content generation: articles, podcasts and videos generated end-to-end from therapy concepts.</li>
+            <li>Secure, rate-limited APIs designed for sensitive mental-health conversations.</li>
+          </ul>
+          <div class="tagrow"><span class="tag">Gemini AI</span><span class="tag">ElevenLabs TTS</span><span class="tag">Veo 3.1</span><span class="tag">PostgreSQL</span></div>
+        </div>
+        <div class="card reveal">
+          <h3>Anti-Phishing Tool — Indian Air Force</h3>
+          <p class="meta">EkVayu Tech · Django · PostgreSQL Replication · JMeter</p>
+          <ul>
+            <li>Mission-critical security platform processing <b>10,000+ alerts/day</b> at 95% uptime under 1,000+ req/sec, with response time cut by 78%.</li>
+          </ul>
+          <div class="tagrow"><span class="tag">10k+ alerts/day</span><span class="tag">-78% response</span><span class="tag">Master–Slave Replication</span></div>
+        </div>
+        <div class="card reveal">
+          <h3>AI Decision Support System — GIS + RAG</h3>
+          <p class="meta">EkVayu Tech · FastAPI · ChromaDB · Redis · WebSocket</p>
+          <ul>
+            <li>RAG-based decision support over military intelligence embeddings, with real-time GIS streaming to live dashboards and query time cut by 60%.</li>
+          </ul>
+          <div class="tagrow"><span class="tag">RAG</span><span class="tag">ChromaDB</span><span class="tag">GIS</span><span class="tag">-60% query time</span></div>
+        </div>
+        <div class="card reveal">
+          <h3>SaunaSpot — Booking Platform</h3>
+          <p class="meta">Bombay Softwares · Django REST · PostgreSQL · Payments</p>
+          <ul>
+            <li>Real-time sauna booking engine with conflict resolution, payment gateway integration, deposits and refunds — API response time reduced by 65%.</li>
+          </ul>
+          <div class="tagrow"><span class="tag">Booking Engine</span><span class="tag">Payments</span><span class="tag">-65% API time</span></div>
+        </div>
+        <div class="card reveal">
+          <h3>TritonLake — Investment Idea Platform</h3>
+          <p class="meta">Bombay Softwares · Django · PostgreSQL · RBAC</p>
+          <ul>
+            <li>Platform for entrepreneurs to pitch ideas and match with investors by industry and funding requirements, with interest tracking and real-time notifications.</li>
+          </ul>
+          <div class="tagrow"><span class="tag">Matching Algorithm</span><span class="tag">Role-Based Access</span><span class="tag">Notifications</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="wrap">
+      <p class="kicker">06 &mdash; Education</p>
+      <h2>Education</h2>
+      <div class="grid c2" style="margin-top:26px">
+        <div class="card reveal">
+          <h3>Post Graduate Diploma in AI &amp; ML</h3>
+          <p class="meta">IIT Jodhpur · 2024 — 2025</p>
+          <p><b style="color:var(--text)">CGPA 8.75</b></p>
+        </div>
+        <div class="card reveal">
+          <h3>B.Tech — Computer Science &amp; Engineering</h3>
+          <p class="meta">Dr. A.P.J. Abdul Kalam Technical University · 2018 — 2022</p>
+          <p><b style="color:var(--text)">CGPA 7.1</b> · NAAC A+</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <div class="wrap">
+      <p class="kicker">07 &mdash; Publications</p>
+      <h2>Research publications</h2>
+      <div class="grid c2" style="margin-top:26px">
+        <div class="card reveal">
+          <h3>SharPy: Hands-Free Digital Drawing with Air Writing and Gesture Recognition</h3>
+          <p class="meta">Springer · 2025</p>
+          <p style="color:var(--muted);font-size:.95rem">A hands-free, web-based air canvas that tracks finger movements to create digital strokes — Django REST Framework with PostgreSQL for gesture patterns and MongoDB for real-time drawing data.</p>
+          <div class="tagrow"><span class="tag">OpenCV</span><span class="tag">MediaPipe</span><span class="tag">Django</span><span class="tag">Computer Vision</span></div>
+        </div>
+        <div class="card reveal">
+          <h3>Cybersecurity Challenges in Decentralized Microgrid Systems</h3>
+          <p class="meta">Springer · 2025</p>
+          <p style="color:var(--muted);font-size:.95rem">Research on cybersecurity vulnerabilities in decentralized microgrid systems, focusing on physical infrastructure threats and database indexing strategies.</p>
+          <div class="tagrow"><span class="tag">Intrusion Detection</span><span class="tag">Encryption Protocols</span><span class="tag">Database Indexing</span><span class="tag">Vector Databases</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-box reveal">
+        <p class="kicker" style="margin-bottom:6px">08 &mdash; Contact</p>
+        <h2>Let&rsquo;s talk</h2>
+        <p>I&rsquo;m a Senior Software Developer based in Dwarka, New Delhi, open to on-site, hybrid and remote roles in India — and available to join from <b style="color:var(--text)">14 December 2026</b>. The fastest way to reach me is email or LinkedIn.</p>
+        <div class="contact-links">
+          <a class="btn primary" href="mailto:princesen00c@gmail.com">Email Me</a>
+          <a class="btn" href="https://www.linkedin.com/in/prince-sen-7a5339301/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://github.com/prince8076" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="tel:+919773823909">+91-9773823909</a>
+        </div>
+        <p class="note"><b>Resume:</b> My full resume is available on request — just email me at <a href="mailto:princesen00c@gmail.com">princesen00c@gmail.com</a> and I&rsquo;ll send the latest PDF. Everything on this page is drawn from that resume.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>&copy; 2026 Prince Sen · Dwarka, New Delhi, India</span>
+    <span>Senior Software Developer · Coforge (British Airways client)</span>
+    <span><a href="https://www.shreejicorporates.com/" target="_blank" rel="noopener">Live project: Shreeji Corporates</a></span>
+  </div>
+</footer>
+
+<button id="topBtn" aria-label="Back to top" title="Back to top">&uarr;</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+  var burger=document.getElementById('burger'), nav=document.getElementById('navLinks');
+  burger.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open?'true':'false');
+  });
+  nav.addEventListener('click',function(e){
+    if(e.target.tagName==='A'){ nav.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }
+  });
+
+  var topBtn=document.getElementById('topBtn');
+  window.addEventListener('scroll',function(){
+    topBtn.style.display=(window.scrollY>600)?'block':'none';
+  },{passive:true});
+  topBtn.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    },{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+    var sections=['about','skills','experience','projects','education','publications','contact'];
+    var links={};
+    document.querySelectorAll('nav.links a').forEach(function(a){
+      var h=a.getAttribute('href'); if(h && h.charAt(0)==='#') links[h.slice(1)]=a;
+    });
+    var so=new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          Object.keys(links).forEach(function(k){ links[k].classList.remove('active'); });
+          if(links[en.target.id]) links[en.target.id].classList.add('active');
+        }
+      });
+    },{rootMargin:'-40% 0px -55% 0px'});
+    sections.forEach(function(id){ var s=document.getElementById(id); if(s) so.observe(s); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+<script>
+(function(){
+  "use strict";
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  /* Stagger reveal delays within each grid */
+  document.querySelectorAll('.grid').forEach(function(g){
+    Array.prototype.forEach.call(g.children,function(el,i){ el.style.setProperty('--d',((i%3)*0.09)+'s'); });
+  });
+
+  /* Scroll progress bar */
+  var bar=document.getElementById('scrollProgress'), ticking=false;
+  function paintBar(){
+    var h=document.documentElement, max=h.scrollHeight-h.clientHeight;
+    bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%'; ticking=false;
+  }
+  window.addEventListener('scroll',function(){ if(!ticking){ ticking=true; requestAnimationFrame(paintBar); } },{passive:true});
+  paintBar();
+
+  /* ---- 3D tilt + glare on cards (desktop, fine pointer, motion OK) ---- */
+  if(finePointer && !reduced && window.innerWidth>768){
+    var tiltEls=document.querySelectorAll('#projects .card, #skills .card, #highlights .card, .hero-card');
+    tiltEls.forEach(function(el){
+      var raf=null;
+      el.addEventListener('mousemove',function(e){
+        var r=el.getBoundingClientRect(), px=(e.clientX-r.left)/r.width, py=(e.clientY-r.top)/r.height;
+        el.style.setProperty('--mx',(px*100)+'%'); el.style.setProperty('--my',(py*100)+'%');
+        if(raf) return;
+        raf=requestAnimationFrame(function(){
+          el.style.transform='perspective(1100px) rotateX('+((0.5-py)*7).toFixed(2)+'deg) rotateY('+((px-0.5)*9).toFixed(2)+'deg) translateY(-4px) translateZ(0)';
+          raf=null;
+        });
+      });
+      el.addEventListener('mouseleave',function(){
+        if(raf){ cancelAnimationFrame(raf); raf=null; }
+        el.style.transform='';
+      });
+    });
+
+    /* Hero parallax depth layers (mouse) */
+    var hero=document.querySelector('.hero'), layers=document.querySelectorAll('[data-parallax]'), hRaf=null, mx=0, my=0;
+    if(hero && layers.length){
+      hero.addEventListener('mousemove',function(e){
+        var r=hero.getBoundingClientRect();
+        mx=(e.clientX-r.left)/r.width-0.5; my=(e.clientY-r.top)/r.height-0.5;
+        if(hRaf) return;
+        hRaf=requestAnimationFrame(function(){
+          layers.forEach(function(l){
+            var d=parseFloat(l.getAttribute('data-parallax'))||10;
+            l.style.translate=(mx*d)+'px '+(my*d)+'px';
+          });
+          hRaf=null;
+        });
+      });
+      hero.addEventListener('mouseleave',function(){ layers.forEach(function(l){ l.style.translate='0px 0px'; }); });
+    }
+  }
+
+  /* ================= 3D HERO =================
+     Layer 1: Three.js WebGL — particle network + floating wireframe geometry.
+     Layer 2 (fallback): lightweight Canvas 2D particle network on same canvas.
+     Layer 3 (fallback): CSS gradients/orbs already in markup — content is never blank.
+     Reduced-motion or no canvas: skip animation entirely. */
+  var canvas=document.getElementById('webglHero');
+  if(!canvas || reduced) return;
+  var small = window.innerWidth < 640;
+
+  function start2DFallback(){
+    var ctx;
+    try{ ctx=canvas.getContext('2d'); }catch(e){ return; }
+    if(!ctx) return;
+    var W,H,pts=[],raf=null,visible=true;
+    function size(){
+      var heroEl=canvas.parentElement; W=canvas.width=heroEl.offsetWidth; H=canvas.height=heroEl.offsetHeight;
+      var n=small?34:64; pts=[];
+      for(var i=0;i<n;i++) pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35});
+    }
+    function frame(){
+      if(!visible){ raf=null; return; }
+      ctx.clearRect(0,0,W,H);
+      var i,j,p,q,dx,dy,dist;
+      for(i=0;i<pts.length;i++){ p=pts[i]; p.x+=p.vx; p.y+=p.vy; if(p.x<0||p.x>W)p.vx*=-1; if(p.y<0||p.y>H)p.vy*=-1;
+        ctx.beginPath(); ctx.arc(p.x,p.y,1.6,0,6.283); ctx.fillStyle='rgba(255,178,94,.85)'; ctx.fill(); }
+      for(i=0;i<pts.length;i++) for(j=i+1;j<pts.length;j++){ p=pts[i]; q=pts[j]; dx=p.x-q.x; dy=p.y-q.y; dist=dx*dx+dy*dy;
+        if(dist<16900){ ctx.beginPath(); ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y); ctx.strokeStyle='rgba(139,124,255,'+(0.16*(1-dist/16900)).toFixed(3)+')'; ctx.stroke(); } }
+      raf=requestAnimationFrame(frame);
+    }
+    size(); frame();
+    window.addEventListener('resize',size);
+    document.addEventListener('visibilitychange',function(){ visible=!document.hidden; if(visible&&!raf) frame(); });
+  }
+
+  function startThree(){
+    var heroEl=canvas.parentElement;
+    var renderer=new THREE.WebGLRenderer({canvas:canvas,alpha:true,antialias:!small,powerPreference:'low-power'});
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio||1, small?1.25:1.8));
+    var scene=new THREE.Scene();
+    var camera=new THREE.PerspectiveCamera(58,1,0.1,100); camera.position.set(0,0,11);
+    /* Particle network points */
+    var count=small?48:120, pos=new Float32Array(count*3), speeds=[];
+    for(var i=0;i<count;i++){
+      var th=Math.random()*Math.PI*2, ph=Math.acos(2*Math.random()-1), rad=3.4+Math.random()*3.6;
+      pos[i*3]=rad*Math.sin(ph)*Math.cos(th); pos[i*3+1]=rad*Math.sin(ph)*Math.sin(th)*0.72; pos[i*3+2]=rad*Math.cos(ph)*0.6;
+      speeds.push(0.2+Math.random()*0.6);
+    }
+    var pGeo=new THREE.BufferGeometry(); pGeo.setAttribute('position',new THREE.BufferAttribute(pos,3));
+    var points=new THREE.Points(pGeo,new THREE.PointsMaterial({color:0xffb25e,size:0.075,transparent:true,opacity:0.9,blending:THREE.AdditiveBlending,depthWrite:false}));
+    scene.add(points);
+    /* Connecting lines from same points (static topology, cheap) */
+    var linePos=[];
+    for(var a=0;a<count;a++) for(var b=a+1;b<count;b++){
+      var dx=pos[a*3]-pos[b*3],dy=pos[a*3+1]-pos[b*3+1],dz=pos[a*3+2]-pos[b*3+2];
+      if(dx*dx+dy*dy+dz*dz<2.1) linePos.push(pos[a*3],pos[a*3+1],pos[a*3+2],pos[b*3],pos[b*3+1],pos[b*3+2]);
+    }
+    var lGeo=new THREE.BufferGeometry(); lGeo.setAttribute('position',new THREE.Float32BufferAttribute(linePos,3));
+    var lines=new THREE.LineSegments(lGeo,new THREE.LineBasicMaterial({color:0xf97316,transparent:true,opacity:0.20,blending:THREE.AdditiveBlending,depthWrite:false}));
+    scene.add(lines);
+    /* Floating wireframe geometry */
+    var group=new THREE.Group();
+    function wire(geo,color,x,y,z,s){
+      var m=new THREE.Mesh(geo,new THREE.MeshBasicMaterial({color:color,wireframe:true,transparent:true,opacity:0.5}));
+      m.position.set(x,y,z); m.scale.setScalar(s); m.userData.seed=Math.random()*10; group.add(m); return m;
+    }
+    wire(new THREE.IcosahedronGeometry(1.15,0),0xf97316,4.6,1.5,-1,1);
+    wire(new THREE.OctahedronGeometry(0.85,0),0xffb25e,-5.0,-1.6,-0.5,1);
+    if(!small) wire(new THREE.TorusGeometry(0.72,0.22,10,28),0xffd9a0,3.9,-2.2,0.4,1);
+    if(!small) wire(new THREE.TetrahedronGeometry(0.6,0),0xe8e3d9,-4.2,2.3,0.2,1);
+    scene.add(group);
+    var tx=0,ty=0,cx=0,cy=0;
+    if(finePointer){
+      heroEl.addEventListener('mousemove',function(e){
+        var r=heroEl.getBoundingClientRect();
+        tx=((e.clientX-r.left)/r.width-0.5); ty=((e.clientY-r.top)/r.height-0.5);
+      });
+    }
+    function size(){
+      var w=heroEl.offsetWidth,h=heroEl.offsetHeight;
+      renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix();
+    }
+    size(); window.addEventListener('resize',size);
+    var inView=true, clock=new THREE.Clock(), raf=null;
+    function tick(){
+      raf=null;
+      if(!inView || document.hidden) return;
+      var t=clock.getElapsedTime();
+      points.rotation.y=t*0.028; lines.rotation.y=t*0.028; points.rotation.x=Math.sin(t*0.12)*0.05;
+      group.children.forEach(function(m,i){
+        m.rotation.x=t*0.18*(i+1)*0.55; m.rotation.y=t*0.22*(i+1)*0.45;
+        m.position.y += Math.sin(t*0.8+m.userData.seed)*0.0016;
+      });
+      cx+=(tx-cx)*0.04; cy+=(ty-cy)*0.04;
+      camera.position.x=cx*1.4; camera.position.y=-cy*0.9; camera.lookAt(0,0,0);
+      renderer.render(scene,camera);
+      raf=requestAnimationFrame(tick);
+    }
+    function kick(){ if(!raf && inView && !document.hidden) raf=requestAnimationFrame(tick); }
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(en){ inView=en[0].isIntersecting; kick(); },{threshold:0.02}).observe(heroEl);
+    }
+    document.addEventListener('visibilitychange',kick);
+    kick();
+  }
+
+  try{
+    if(!window.THREE) throw new Error('three-unavailable');
+    var probe=document.createElement('canvas');
+    if(!(window.WebGLRenderingContext && (probe.getContext('webgl')||probe.getContext('experimental-webgl')))) throw new Error('no-webgl');
+    startThree();
+    canvas.setAttribute('data-renderer','webgl');
+  }catch(err){
+    try{ start2DFallback(); canvas.setAttribute('data-renderer','canvas2d'); }
+    catch(e2){ canvas.style.display='none'; }
+  }
+})();
+</script>
+<script>
+(function(){
+  "use strict";
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fine=window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  /* Per-character title rise (Trophy-style char-up) */
+  var h1=document.querySelector('.hero h1'), ci=0;
+  if(h1 && !reduced){
+    (function split(node){
+      Array.prototype.slice.call(node.childNodes).forEach(function(n){
+        if(n.nodeType===3){
+          var frag=document.createDocumentFragment();
+          n.textContent.split('').forEach(function(ch){
+            if(ch===' '){ frag.appendChild(document.createTextNode(' ')); return; }
+            var s=document.createElement('span'); s.className='char'; s.style.setProperty('--ci',ci++); s.textContent=ch; frag.appendChild(s);
+          });
+          node.replaceChild(frag,n);
+        } else if(n.nodeType===1){ split(n); }
+      });
+    })(h1);
+  } else if(h1){ h1.querySelectorAll('*').forEach(function(e){ e.style.opacity='1'; }); }
+
+  if(reduced) return;
+
+  /* Photo frame 3D tilt (stronger, with depth layers via translateZ in CSS) */
+  var frame=document.getElementById('photoFrame');
+  if(frame && fine && window.innerWidth>768){
+    var fr=null;
+    frame.addEventListener('mousemove',function(e){
+      var r=frame.getBoundingClientRect(), px=(e.clientX-r.left)/r.width, py=(e.clientY-r.top)/r.height;
+      if(fr) return;
+      fr=requestAnimationFrame(function(){
+        frame.style.transform='perspective(900px) rotateX('+((0.5-py)*10).toFixed(2)+'deg) rotateY('+((px-0.5)*12).toFixed(2)+'deg)';
+        fr=null;
+      });
+    });
+    frame.addEventListener('mouseleave',function(){ if(fr)cancelAnimationFrame(fr); fr=null; frame.style.transform=''; });
+    frame.style.transition='transform .35s cubic-bezier(.2,.7,.3,1)';
+  }
+
+  /* Scroll choreography: hero scrubs out, timeline line fills */
+  var heroGrid=document.querySelector('.hero-grid'), heroEl=document.querySelector('.hero'),
+      canvasEl=document.getElementById('webglHero'), tl=document.querySelector('.timeline'), fill=document.getElementById('tlFill'),
+      tick=false;
+  function onScroll(){
+    if(tick) return; tick=true;
+    requestAnimationFrame(function(){
+      tick=false;
+      var y=window.scrollY;
+      if(heroEl && y<heroEl.offsetHeight*1.2){
+        var p=Math.min(1,y/(heroEl.offsetHeight||1));
+        if(heroGrid){ heroGrid.style.transform='translateY('+(p*44)+'px)'; heroGrid.style.opacity=(1-p*0.45).toFixed(3); }
+        if(canvasEl){ canvasEl.style.transform='translateY('+(p*70)+'px) scale('+(1+p*0.07).toFixed(3)+')'; }
+      }
+      if(tl && fill){
+        var r=tl.getBoundingClientRect(), vh=window.innerHeight;
+        var prog=(vh*0.72-r.top)/(r.height||1); prog=Math.max(0,Math.min(1,prog));
+        fill.style.height=(prog*(r.height-12))+'px';
+      }
+    });
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  /* Custom cursor follower (Trophy-style dot + trailing ring) */
+  if(fine){
+    var dot=document.getElementById('cursorDot'), ring=document.getElementById('cursorRing');
+    if(dot && ring){
+      var mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
+      document.addEventListener('mousemove',function(e){ mx=e.clientX; my=e.clientY; dot.style.left=mx+'px'; dot.style.top=my+'px'; });
+      (function loop(){ rx+=(mx-rx)*0.16; ry+=(my-ry)*0.16; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(loop); })();
+      document.querySelectorAll('a,button,.card,.job,.photo-frame').forEach(function(el){
+        el.addEventListener('mouseenter',function(){ ring.classList.add('is-hover'); });
+        el.addEventListener('mouseleave',function(){ ring.classList.remove('is-hover'); });
+      });
+    }
+  }
+})();
+</script>
+</body>
+</html>
